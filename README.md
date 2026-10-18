@@ -356,16 +356,6 @@ index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 | 4 | Performance analysis report (time/space complexity comparison) | `performance/`, `PERFORMANCE_ANALYSIS_REPORT.md` | ✅ Complete |
 | 5 | Presentation slides (key findings, challenges, lessons learned) | `presentation/slides.py` (+ generated HTML) | ✅ Complete |
 
-Evaluation criteria mapping:
-
-| Criterion | Max | Covered by |
-|---|---|---|
-| Implementation (6) | 6 | `src/dsa/` + `scenarios/` — all structures correct, from scratch, scenario-demoed |
-| Documentation (4) | 4 | `README.md`, `docs/DESIGN.md`, inline `Time:`/`Space:` docstrings, usage examples |
-| Testing & Validation (3) | 3 | `tests/` + `TEST_VALIDATION_REPORT.md` — edge cases across every structure |
-| Performance Analysis (2) | 2 | `performance/` + `PERFORMANCE_ANALYSIS_REPORT.md` — sorting + traversal comparison |
-| Presentation (5) | 5 | `presentation/slides.py` — Python-generated slide deck |
-
 ---
 
 ## Requirements
