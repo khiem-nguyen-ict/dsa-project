@@ -56,7 +56,7 @@ do not insert a second node. Rationale:
 
 ---
 
-## 5. AVL balancing via recursive return values
+## 5. Balanced BST (AVLTree) via recursive return values
 
 `AVLTree` uses no parent pointers. Each recursive insert/delete returns the new
 subtree root, and rotations are applied on the way back up the recursion:

@@ -14,7 +14,14 @@ from src.dsa.trees.node import TreeNode
 
 
 class AVLTree:
-    """An AVL tree keeping balance factors in {-1, 0, +1} at every node."""
+    """An AVL tree keeping balance factors in {-1, 0, +1} at every node.
+
+    Concrete implementation of a **Balanced Binary Search Tree** (a.k.a.
+    self-balancing BST).  After every insert and delete the tree is rebalanced
+    via single/double rotations so the height stays O(log n) even on sorted
+    or adversarial input, unlike a plain :class:`BinarySearchTree` which can
+    degenerate into a linked list (O(n)).
+    """
 
     def __init__(self) -> None:
         self._root: "TreeNode | None" = None

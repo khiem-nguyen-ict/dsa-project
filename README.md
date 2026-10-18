@@ -87,6 +87,9 @@ dsa-project/
 | `BinaryTree` | `src/dsa/trees/binary_tree.py` | level-order insert, height, size | insert O(n); height/size O(n) |
 | `BinarySearchTree` | `src/dsa/trees/bst.py` | insert, search, delete, min, max | O(h); O(log n) balanced / O(n) skewed |
 | `AVLTree` | `src/dsa/trees/avl.py` | insert, search, delete, is_balanced | O(log n) guaranteed |
+
+Concrete **Balanced BST** (self-balancing via rotations); satisfies the
+"BalancedTree" requirement of the assignment.
 | `ChainingHashTable` | `src/dsa/hashing/chaining.py` | put, get, remove | O(1) amortized average |
 | `OpenAddressingHashTable` | `src/dsa/hashing/open_addressing.py` | put, get, remove | O(1) amortized average |
 
