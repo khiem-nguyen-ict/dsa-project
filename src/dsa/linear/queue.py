@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Iterator
 
-from src.dsa.linear.linked_list import _Node
+from src.dsa.linear.node import Node
 
 
 class QueueLinked:
@@ -15,8 +15,8 @@ class QueueLinked:
     """
 
     def __init__(self) -> None:
-        self._head: _Node | None = None
-        self._tail: _Node | None = None
+        self._head: Node | None = None
+        self._tail: Node | None = None
         self._size: int = 0
 
     def enqueue(self, value: Any) -> None:
@@ -25,7 +25,7 @@ class QueueLinked:
         Time: O(1).
         Space: O(1).
         """
-        node = _Node(value)
+        node = Node(value)
         if self._tail is None:
             self._head = node
             self._tail = node
