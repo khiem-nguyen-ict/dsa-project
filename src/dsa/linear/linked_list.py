@@ -4,15 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Iterator, cast
 
-
-class _Node:
-    """A single linked-list node holding one value and a next pointer."""
-
-    __slots__ = ("value", "next")
-
-    def __init__(self, value: Any) -> None:
-        self.value: Any = value
-        self.next: _Node | None = None
+from src.dsa.linear.node import Node
 
 
 class SinglyLinkedList:
@@ -23,8 +15,8 @@ class SinglyLinkedList:
     """
 
     def __init__(self) -> None:
-        self._head: _Node | None = None
-        self._tail: _Node | None = None
+        self._head: Node | None = None
+        self._tail: Node | None = None
         self._size: int = 0
 
     def insert_head(self, value: Any) -> None:
@@ -33,7 +25,7 @@ class SinglyLinkedList:
         Time: O(1).
         Space: O(1).
         """
-        node = _Node(value)
+        node = Node(value)
         node.next = self._head
         self._head = node
         if self._tail is None:
@@ -46,7 +38,7 @@ class SinglyLinkedList:
         Time: O(1) thanks to the maintained tail pointer.
         Space: O(1).
         """
-        node = _Node(value)
+        node = Node(value)
         if self._tail is None:
             self._head = node
             self._tail = node
@@ -72,8 +64,8 @@ class SinglyLinkedList:
         prev = self._head
         for _ in range(index - 1):
             prev = prev.next  # type: ignore[union-attr]
-        prev = cast(_Node, prev)  # type: ignore
-        node = _Node(value)
+        prev = cast(Node, prev)  # type: ignore
+        node = Node(value)
         node.next = prev.next
         prev.next = node
         self._size += 1
@@ -85,7 +77,7 @@ class SinglyLinkedList:
         Space: O(1).
         Returns ``True`` if a node was removed, ``False`` otherwise.
         """
-        prev: _Node | None = None
+        prev: Node | None = None
         current = self._head
         while current is not None:
             if current.value == value:
@@ -122,7 +114,7 @@ class SinglyLinkedList:
         Time: O(n) single traversal.
         Space: O(1) extra.
         """
-        prev: _Node | None = None
+        prev: Node | None = None
         current = self._head
         while current is not None:
             nxt = current.next

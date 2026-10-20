@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any, Iterator
 
 from src.dsa.linear.array import DynamicArray
-from src.dsa.linear.linked_list import _Node
+from src.dsa.linear.node import Node
 
 
 class StackArray:
@@ -70,7 +70,7 @@ class StackLinked:
     """
 
     def __init__(self) -> None:
-        self._head: _Node | None = None
+        self._head: Node | None = None
         self._size: int = 0
 
     def push(self, value: Any) -> None:
@@ -79,7 +79,7 @@ class StackLinked:
         Time: O(1).
         Space: O(1).
         """
-        node = _Node(value)
+        node = Node(value)
         node.next = self._head
         self._head = node
         self._size += 1
