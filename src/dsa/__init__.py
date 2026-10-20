@@ -6,7 +6,6 @@ from src.dsa.linear import (
     StackArray,
     StackLinked,
     QueueLinked,
-    QueueCircularArray,
 )
 from src.dsa.trees import (
     TreeNode,
@@ -36,7 +35,6 @@ __all__ = [
     "StackArray",
     "StackLinked",
     "QueueLinked",
-    "QueueCircularArray",
     "TreeNode",
     "BinaryTree",
     "BinarySearchTree",

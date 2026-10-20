@@ -212,7 +212,7 @@ def write_report(sorting_results: list[dict], traversal_results: list[dict], pat
     lines.append("| DynamicArray | O(1) amortized append | O(n) occasional resize |")
     lines.append("| SinglyLinkedList | O(1) per node | O(n) total for n nodes |")
     lines.append("| StackArray / StackLinked | O(1) per push | StackLinked allocates a node per push |")
-    lines.append("| QueueLinked / QueueCircularArray | O(1) per enqueue | CircularArray resizes O(n) occasionally |")
+    lines.append("| QueueLinked | O(1) per enqueue | |")
     lines.append("| BinarySearchTree | O(1) per node | O(h) recursion for insert/delete |")
     lines.append("| AVLTree | O(1) per node | O(log n) recursion depth when balanced |")
     lines.append("| ChainingHashTable | O(1) amortized | Buckets plus occasional O(n) resize |")

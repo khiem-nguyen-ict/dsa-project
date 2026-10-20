@@ -55,7 +55,7 @@ def write_report(result: unittest.TestResult, path: str) -> None:
     lines.append("")
     lines.append("## Modules covered")
     lines.append("")
-    lines.append("- `tests/test_linear.py` — DynamicArray, SinglyLinkedList, StackArray, StackLinked, QueueLinked, QueueCircularArray")
+    lines.append("- `tests/test_linear.py` — DynamicArray, SinglyLinkedList, StackArray, StackLinked, QueueLinked")
     lines.append("- `tests/test_trees.py` — BinaryTree, BinarySearchTree, AVLTree, traversals (in-order, pre-order, post-order, level-order)")
     lines.append("- `tests/test_hashing.py` — division_hash, polynomial_hash, djb2_hash, ChainingHashTable, OpenAddressingHashTable")
     lines.append("- `tests/test_sorting_searching.py` — bubble_sort, insertion_sort, merge_sort, linear_search, binary_search (iterative & recursive)")

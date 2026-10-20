@@ -1,6 +1,6 @@
 # DSA Project — Performance Analysis Report
 
-Generated: 2026-10-17T11:46:07.462146
+Generated: 2026-10-20T08:40:46.787890
 
 ## Methodology
 
@@ -14,50 +14,50 @@ Generated: 2026-10-17T11:46:07.462146
 
 | Algorithm | Size | Distribution | Time | Comparisons | Swaps |
 |---|---|---|---|---|---|
-| bubble_sort | 100 | random | 2.45 ms | 4,740 | 2,298 |
-| insertion_sort | 100 | random | 1.29 ms | 2,394 | 2,298 |
-| merge_sort | 100 | random | 530.7 µs | 549 | 0 |
-| bubble_sort | 100 | sorted | 21.9 µs | 99 | 0 |
-| insertion_sort | 100 | sorted | 23.6 µs | 99 | 0 |
-| merge_sort | 100 | sorted | 346.5 µs | 316 | 0 |
-| bubble_sort | 100 | reverse | 4.12 ms | 4,950 | 4,950 |
-| insertion_sort | 100 | reverse | 2.84 ms | 4,950 | 4,950 |
-| merge_sort | 100 | reverse | 375.8 µs | 356 | 0 |
-| bubble_sort | 100 | duplicates | 2.22 ms | 4,905 | 2,027 |
-| insertion_sort | 100 | duplicates | 1.10 ms | 2,124 | 2,027 |
-| merge_sort | 100 | duplicates | 432.8 µs | 534 | 0 |
-| bubble_sort | 500 | random | 57.84 ms | 124,560 | 61,163 |
-| insertion_sort | 500 | random | 30.01 ms | 61,657 | 61,163 |
-| merge_sort | 500 | random | 2.75 ms | 3,853 | 0 |
-| bubble_sort | 500 | sorted | 175.2 µs | 499 | 0 |
-| insertion_sort | 500 | sorted | 215.6 µs | 499 | 0 |
-| merge_sort | 500 | sorted | 2.18 ms | 2,216 | 0 |
-| bubble_sort | 500 | reverse | 78.79 ms | 124,750 | 124,750 |
-| insertion_sort | 500 | reverse | 111.89 ms | 124,750 | 124,750 |
-| merge_sort | 500 | reverse | 7.12 ms | 2,272 | 0 |
-| bubble_sort | 500 | duplicates | 493.65 ms | 124,344 | 62,758 |
-| insertion_sort | 500 | duplicates | 149.68 ms | 63,254 | 62,758 |
-| merge_sort | 500 | duplicates | 3.01 ms | 3,837 | 0 |
-| bubble_sort | 1000 | random | 852.91 ms | 499,290 | 237,493 |
-| insertion_sort | 1000 | random | 124.77 ms | 238,487 | 237,493 |
-| merge_sort | 1000 | random | 6.58 ms | 8,704 | 0 |
-| bubble_sort | 1000 | sorted | 328.0 µs | 999 | 0 |
-| insertion_sort | 1000 | sorted | 599.0 µs | 999 | 0 |
-| merge_sort | 1000 | sorted | 4.42 ms | 4,932 | 0 |
-| bubble_sort | 1000 | reverse | 364.51 ms | 499,500 | 499,500 |
-| insertion_sort | 1000 | reverse | 262.53 ms | 499,500 | 499,500 |
-| merge_sort | 1000 | reverse | 4.48 ms | 5,044 | 0 |
-| bubble_sort | 1000 | duplicates | 229.53 ms | 497,484 | 237,478 |
-| insertion_sort | 1000 | duplicates | 148.51 ms | 238,474 | 237,478 |
-| merge_sort | 1000 | duplicates | 6.29 ms | 8,710 | 0 |
-| merge_sort | 2000 | random | 14.94 ms | 19,428 | 0 |
-| merge_sort | 2000 | sorted | 8.36 ms | 10,864 | 0 |
-| merge_sort | 2000 | reverse | 10.23 ms | 11,088 | 0 |
-| merge_sort | 2000 | duplicates | 12.62 ms | 19,408 | 0 |
-| merge_sort | 5000 | random | 25.41 ms | 55,192 | 0 |
-| merge_sort | 5000 | sorted | 19.55 ms | 29,804 | 0 |
-| merge_sort | 5000 | reverse | 18.69 ms | 32,004 | 0 |
-| merge_sort | 5000 | duplicates | 32.19 ms | 55,255 | 0 |
+| bubble_sort | 100 | random | 2.70 ms | 4,740 | 2,298 |
+| insertion_sort | 100 | random | 1.25 ms | 2,394 | 2,298 |
+| merge_sort | 100 | random | 508.9 µs | 549 | 0 |
+| bubble_sort | 100 | sorted | 32.0 µs | 99 | 0 |
+| insertion_sort | 100 | sorted | 40.6 µs | 99 | 0 |
+| merge_sort | 100 | sorted | 338.1 µs | 316 | 0 |
+| bubble_sort | 100 | reverse | 3.65 ms | 4,950 | 4,950 |
+| insertion_sort | 100 | reverse | 3.45 ms | 4,950 | 4,950 |
+| merge_sort | 100 | reverse | 359.3 µs | 356 | 0 |
+| bubble_sort | 100 | duplicates | 4.82 ms | 4,905 | 2,027 |
+| insertion_sort | 100 | duplicates | 1.48 ms | 2,124 | 2,027 |
+| merge_sort | 100 | duplicates | 740.9 µs | 534 | 0 |
+| bubble_sort | 500 | random | 145.23 ms | 124,560 | 61,163 |
+| insertion_sort | 500 | random | 47.50 ms | 61,657 | 61,163 |
+| merge_sort | 500 | random | 2.96 ms | 3,853 | 0 |
+| bubble_sort | 500 | sorted | 152.1 µs | 499 | 0 |
+| insertion_sort | 500 | sorted | 197.3 µs | 499 | 0 |
+| merge_sort | 500 | sorted | 2.31 ms | 2,216 | 0 |
+| bubble_sort | 500 | reverse | 82.88 ms | 124,750 | 124,750 |
+| insertion_sort | 500 | reverse | 76.76 ms | 124,750 | 124,750 |
+| merge_sort | 500 | reverse | 2.36 ms | 2,272 | 0 |
+| bubble_sort | 500 | duplicates | 77.03 ms | 124,344 | 62,758 |
+| insertion_sort | 500 | duplicates | 30.11 ms | 63,254 | 62,758 |
+| merge_sort | 500 | duplicates | 2.29 ms | 3,837 | 0 |
+| bubble_sort | 1000 | random | 286.99 ms | 499,290 | 237,493 |
+| insertion_sort | 1000 | random | 125.96 ms | 238,487 | 237,493 |
+| merge_sort | 1000 | random | 6.11 ms | 8,704 | 0 |
+| bubble_sort | 1000 | sorted | 373.2 µs | 999 | 0 |
+| insertion_sort | 1000 | sorted | 406.7 µs | 999 | 0 |
+| merge_sort | 1000 | sorted | 3.99 ms | 4,932 | 0 |
+| bubble_sort | 1000 | reverse | 327.59 ms | 499,500 | 499,500 |
+| insertion_sort | 1000 | reverse | 707.12 ms | 499,500 | 499,500 |
+| merge_sort | 1000 | reverse | 81.69 ms | 5,044 | 0 |
+| bubble_sort | 1000 | duplicates | 391.32 ms | 497,484 | 237,478 |
+| insertion_sort | 1000 | duplicates | 575.78 ms | 238,474 | 237,478 |
+| merge_sort | 1000 | duplicates | 9.89 ms | 8,710 | 0 |
+| merge_sort | 2000 | random | 15.76 ms | 19,428 | 0 |
+| merge_sort | 2000 | sorted | 12.80 ms | 10,864 | 0 |
+| merge_sort | 2000 | reverse | 14.79 ms | 11,088 | 0 |
+| merge_sort | 2000 | duplicates | 15.94 ms | 19,408 | 0 |
+| merge_sort | 5000 | random | 61.22 ms | 55,192 | 0 |
+| merge_sort | 5000 | sorted | 33.13 ms | 29,804 | 0 |
+| merge_sort | 5000 | reverse | 39.31 ms | 32,004 | 0 |
+| merge_sort | 5000 | duplicates | 40.01 ms | 55,255 | 0 |
 
 ### Sorting observations
 
@@ -70,36 +70,36 @@ Generated: 2026-10-17T11:46:07.462146
 
 | Traversal | Variant | Size | Time |
 |---|---|---|---|
-| in_order | recursive | 100 | 66.7 µs |
-| in_order | iterative | 100 | 160.2 µs |
-| pre_order | recursive | 100 | 109.0 µs |
-| pre_order | iterative | 100 | 110.7 µs |
-| post_order | recursive | 100 | 97.7 µs |
-| post_order | iterative | 100 | 198.5 µs |
-| in_order | recursive | 500 | 267.4 µs |
-| in_order | iterative | 500 | 358.3 µs |
-| pre_order | recursive | 500 | 396.5 µs |
-| pre_order | iterative | 500 | 268.5 µs |
-| post_order | recursive | 500 | 447.3 µs |
-| post_order | iterative | 500 | 866.8 µs |
-| in_order | recursive | 1000 | 961.9 µs |
-| in_order | iterative | 1000 | 929.3 µs |
-| pre_order | recursive | 1000 | 897.8 µs |
-| pre_order | iterative | 1000 | 1.95 ms |
-| post_order | recursive | 1000 | 1.06 ms |
-| post_order | iterative | 1000 | 2.50 ms |
-| in_order | recursive | 2000 | 1.97 ms |
-| in_order | iterative | 2000 | 1.96 ms |
-| pre_order | recursive | 2000 | 2.28 ms |
-| pre_order | iterative | 2000 | 2.01 ms |
-| post_order | recursive | 2000 | 2.08 ms |
-| post_order | iterative | 2000 | 3.47 ms |
-| in_order | recursive | 5000 | 4.49 ms |
-| in_order | iterative | 5000 | 5.25 ms |
-| pre_order | recursive | 5000 | 8.28 ms |
-| pre_order | iterative | 5000 | 4.22 ms |
-| post_order | recursive | 5000 | 4.55 ms |
-| post_order | iterative | 5000 | 9.47 ms |
+| in_order | recursive | 100 | 242.1 µs |
+| in_order | iterative | 100 | 307.5 µs |
+| pre_order | recursive | 100 | 132.4 µs |
+| pre_order | iterative | 100 | 294.7 µs |
+| post_order | recursive | 100 | 146.1 µs |
+| post_order | iterative | 100 | 469.5 µs |
+| in_order | recursive | 500 | 596.4 µs |
+| in_order | iterative | 500 | 1.23 ms |
+| pre_order | recursive | 500 | 529.4 µs |
+| pre_order | iterative | 500 | 1.07 ms |
+| post_order | recursive | 500 | 445.0 µs |
+| post_order | iterative | 500 | 2.36 ms |
+| in_order | recursive | 1000 | 1.45 ms |
+| in_order | iterative | 1000 | 2.21 ms |
+| pre_order | recursive | 1000 | 1.11 ms |
+| pre_order | iterative | 1000 | 1.66 ms |
+| post_order | recursive | 1000 | 1.33 ms |
+| post_order | iterative | 1000 | 4.25 ms |
+| in_order | recursive | 2000 | 2.16 ms |
+| in_order | iterative | 2000 | 4.07 ms |
+| pre_order | recursive | 2000 | 2.12 ms |
+| pre_order | iterative | 2000 | 4.00 ms |
+| post_order | recursive | 2000 | 2.00 ms |
+| post_order | iterative | 2000 | 6.58 ms |
+| in_order | recursive | 5000 | 6.05 ms |
+| in_order | iterative | 5000 | 9.65 ms |
+| pre_order | recursive | 5000 | 7.17 ms |
+| pre_order | iterative | 5000 | 9.47 ms |
+| post_order | recursive | 5000 | 6.10 ms |
+| post_order | iterative | 5000 | 19.67 ms |
 
 ### Traversal observations
 
@@ -114,7 +114,7 @@ Generated: 2026-10-17T11:46:07.462146
 | DynamicArray | O(1) amortized append | O(n) occasional resize |
 | SinglyLinkedList | O(1) per node | O(n) total for n nodes |
 | StackArray / StackLinked | O(1) per push | StackLinked allocates a node per push |
-| QueueLinked / QueueCircularArray | O(1) per enqueue | CircularArray resizes O(n) occasionally |
+| QueueLinked | O(1) per enqueue | |
 | BinarySearchTree | O(1) per node | O(h) recursion for insert/delete |
 | AVLTree | O(1) per node | O(log n) recursion depth when balanced |
 | ChainingHashTable | O(1) amortized | Buckets plus occasional O(n) resize |
