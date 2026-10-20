@@ -3,7 +3,7 @@
 from src.dsa.linear.array import DynamicArray
 from src.dsa.linear.linked_list import SinglyLinkedList
 from src.dsa.linear.stack import StackArray, StackLinked
-from src.dsa.linear.queue import QueueLinked, QueueCircularArray
+from src.dsa.linear.queue import QueueLinked
 
 __all__ = [
     "DynamicArray",
@@ -11,5 +11,4 @@ __all__ = [
     "StackArray",
     "StackLinked",
     "QueueLinked",
-    "QueueCircularArray",
 ]

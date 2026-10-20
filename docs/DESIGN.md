@@ -11,7 +11,7 @@ Python standard library. Specifically:
 
 - **No `dict` / `set` inside hash tables** — chaining uses plain lists as buckets; open addressing uses a plain list as the slot buffer.
 - **No `list.sort()` / `sorted()` inside sorting algorithms** — bubble, insertion, and merge sort perform their own comparisons and moves.
-- **No `collections.deque`** — queues use a linked list (`QueueLinked`) or a circular plain-list buffer (`QueueCircularArray`).
+- **No `collections.deque`** — queues use a linked list (`QueueLinked`).
 - **No `heapq` / `bisect`** — not needed for the required structures.
 
 This satisfies the assignment's requirement that students "design and implement" the structures themselves rather than wrapping built-ins.
@@ -23,7 +23,6 @@ This satisfies the assignment's requirement that students "design and implement"
 A plain Python list (`[None] * capacity`) appears in exactly three places:
 
 1. `DynamicArray._storage` — the growable array's backing buffer.
-2. `QueueCircularArray._storage` — the circular queue's ring buffer.
 3. Hash-table buckets (`ChainingHashTable._buckets`) and slots (`OpenAddressingHashTable._slots`).
 
 In every other structure, behaviour is built from custom primitives (`_Node`, `TreeNode`, buckets, slots). The list is never used as a general-purpose container that would hide the data-structure logic.
@@ -32,7 +31,7 @@ In every other structure, behaviour is built from custom primitives (`_Node`, `T
 
 ## 3. Grow-only resizing policy
 
-`DynamicArray`, `QueueCircularArray`, and both hash tables grow when full or
+`DynamicArray`, and both hash tables grow when full or
 when the load factor crosses a threshold, but never shrink. Rationale:
 
 - Simplicity: no shrink heuristics to tune or bugs from thrashing near the threshold.

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any, Iterator, cast
 
 
 class _Node:
@@ -12,7 +12,7 @@ class _Node:
 
     def __init__(self, value: Any) -> None:
         self.value: Any = value
-        self.next: "_Node | None" = None
+        self.next: _Node | None = None
 
 
 class SinglyLinkedList:
@@ -72,6 +72,7 @@ class SinglyLinkedList:
         prev = self._head
         for _ in range(index - 1):
             prev = prev.next  # type: ignore[union-attr]
+        prev = cast(_Node, prev)  # type: ignore
         node = _Node(value)
         node.next = prev.next
         prev.next = node

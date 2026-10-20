@@ -68,7 +68,7 @@ dsa-project/
 │   └── DESIGN.md              # design principles & trade-offs
 ├── presentation/
 │   ├── __init__.py
-│   └── slides.py              # Python-generated presentation slides
+│   └── report.py              # Python-generated presentation report
 └── .gitignore
 ```
 
@@ -83,7 +83,6 @@ dsa-project/
 | `StackArray` | `src/dsa/linear/stack.py` | push, pop, peek | O(1) amortized push/pop |
 | `StackLinked` | `src/dsa/linear/stack.py` | push, pop, peek | O(1) push/pop |
 | `QueueLinked` | `src/dsa/linear/queue.py` | enqueue, dequeue, peek | O(1) |
-| `QueueCircularArray` | `src/dsa/linear/queue.py` | enqueue, dequeue, peek | amortized O(1) enqueue; O(1) dequeue |
 | `BinaryTree` | `src/dsa/trees/binary_tree.py` | level-order insert, height, size | insert O(n); height/size O(n) |
 | `BinarySearchTree` | `src/dsa/trees/bst.py` | insert, search, delete, min, max | O(h); O(log n) balanced / O(n) skewed |
 | `AVLTree` | `src/dsa/trees/avl.py` | insert, search, delete, is_balanced | O(log n) guaranteed |
@@ -182,8 +181,8 @@ general sorting; prefer AVL over BST when input may be sorted/adversarial).
 ## Generate presentation slides
 
 ```bash
-# Generate presentation/slides.html (open in any browser)
-python presentation/slides.py
+# Generate presentation/report.html (open in any browser)
+python presentation/report.py
 ```
 
 The slide deck (15 slides) summarizes key findings, challenges faced, and lessons
@@ -354,7 +353,7 @@ index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 | 2 | Documentation (design principles, functionality, usage examples) | `README.md`, `docs/DESIGN.md`, inline docstrings | ✅ Complete |
 | 3 | Test cases & validation report (scenarios + edge cases) | `tests/`, `TEST_VALIDATION_REPORT.md` | ✅ Complete |
 | 4 | Performance analysis report (time/space complexity comparison) | `performance/`, `PERFORMANCE_ANALYSIS_REPORT.md` | ✅ Complete |
-| 5 | Presentation slides (key findings, challenges, lessons learned) | `presentation/slides.py` (+ generated HTML) | ✅ Complete |
+| 5 | Presentation slides (key findings, challenges, lessons learned) | `presentation/report.py` (+ generated HTML) | ✅ Complete |
 
 ---
 

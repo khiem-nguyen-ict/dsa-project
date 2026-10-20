@@ -1,18 +1,18 @@
 # DSA Project — Test Validation Report
 
-Generated: 2026-10-17T11:48:42.391644
+Generated: 2026-10-20T08:40:13.323185
 
 ## Summary
 
-- Total test cases run: 115
-- Passed: 115
+- Total test cases run: 111
+- Passed: 111
 - Failed: 0
 - Errors: 0
 - Success rate: 100.0%
 
 ## Modules covered
 
-- `tests/test_linear.py` — DynamicArray, SinglyLinkedList, StackArray, StackLinked, QueueLinked, QueueCircularArray
+- `tests/test_linear.py` — DynamicArray, SinglyLinkedList, StackArray, StackLinked, QueueLinked
 - `tests/test_trees.py` — BinaryTree, BinarySearchTree, AVLTree, traversals (in-order, pre-order, post-order, level-order)
 - `tests/test_hashing.py` — division_hash, polynomial_hash, djb2_hash, ChainingHashTable, OpenAddressingHashTable
 - `tests/test_sorting_searching.py` — bubble_sort, insertion_sort, merge_sort, linear_search, binary_search (iterative & recursive)

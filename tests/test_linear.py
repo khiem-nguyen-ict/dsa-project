@@ -17,7 +17,6 @@ from src.dsa.linear import (
     StackArray,
     StackLinked,
     QueueLinked,
-    QueueCircularArray,
 )
 
 
@@ -250,38 +249,6 @@ class TestQueueLinked(unittest.TestCase):
         queue.enqueue(42)
         self.assertEqual(queue.peek(), 42)
         self.assertEqual(queue.size(), 1)  # peek does not remove
-
-
-class TestQueueCircularArray(unittest.TestCase):
-    def test_enqueue_dequeue_fifo(self):
-        queue = QueueCircularArray(capacity=2)
-        queue.enqueue("a")
-        queue.enqueue("b")
-        queue.enqueue("c")  # triggers grow
-        self.assertEqual(queue.dequeue(), "a")
-        self.assertEqual(queue.dequeue(), "b")
-        self.assertEqual(queue.dequeue(), "c")
-        self.assertTrue(queue.is_empty())
-
-    def test_dequeue_empty_raises(self):
-        queue = QueueCircularArray()
-        with self.assertRaises(IndexError):
-            queue.dequeue()
-
-    def test_peek_and_iter(self):
-        queue = QueueCircularArray()
-        for v in [1, 2, 3]:
-            queue.enqueue(v)
-        self.assertEqual(queue.peek(), 1)
-        self.assertEqual(list(queue), [1, 2, 3])
-
-    def test_grow_only(self):
-        queue = QueueCircularArray(capacity=2)
-        for i in range(50):
-            queue.enqueue(i)
-        self.assertEqual(len(queue), 50)
-        for i in range(50):
-            self.assertEqual(queue.dequeue(), i)
 
 
 if __name__ == "__main__":
