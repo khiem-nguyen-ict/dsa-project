@@ -31,19 +31,36 @@ documentation — all demonstrated through runnable scenarios.
 
 ```
 dsa-project/
-├── main.py                    # argparse entry point: runs all scenarios
-├── README.md                  # this file
-├── TEST_VALIDATION_REPORT.md  # generated test validation report
-├── PERFORMANCE_ANALYSIS_REPORT.md  # generated performance comparison report
-├── src/dsa/                   # library package
-│   ├── __init__.py            # public API exports
-│   ├── linear/                # DynamicArray, SinglyLinkedList, stacks, queues
-│   ├── trees/                 # TreeNode, BinaryTree, BST, AVL, traversals
-│   ├── hashing/               # hash functions, chaining, open addressing
-│   ├── sorting.py             # bubble, insertion, merge sort
-│   ├── searching.py           # linear, binary (iterative + recursive)
-│   └── stats.py               # OpStats comparison/swap counters
-├── scenarios/                 # runnable scenario demos (one per structure area)
+├── main.py                        # argparse entry point: runs all scenarios
+├── README.md                      # this file
+├── TEST_VALIDATION_REPORT.md      # generated test validation report
+├── PERFORMANCE_ANALYSIS_REPORT.md # generated performance comparison report
+├── project_config.json            # project configuration
+├── src/dsa/                       # library package
+│   ├── __init__.py                # public API exports
+│   ├── linear/                    # DynamicArray, SinglyLinkedList, stacks, queues
+│   │   ├── __init__.py
+│   │   ├── array.py
+│   │   ├── linked_list.py
+│   │   ├── stack.py
+│   │   └── queue.py
+│   ├── trees/                     # TreeNode, BinaryTree, BST, AVL, traversals
+│   │   ├── __init__.py
+│   │   ├── node.py
+│   │   ├── binary_tree.py
+│   │   ├── bst.py
+│   │   ├── avl.py
+│   │   └── traversals.py
+│   ├── hashing/                   # hash functions, chaining, open addressing
+│   │   ├── __init__.py
+│   │   ├── hash_functions.py
+│   │   ├── chaining.py
+│   │   └── open_addressing.py
+│   ├── sorting.py                 # bubble, insertion, merge sort
+│   ├── searching.py               # linear, binary (iterative + recursive)
+│   └── stats.py                   # OpStats comparison/swap counters
+├── scenarios/                     # runnable scenario demos (one per structure area)
+│   ├── __init__.py
 │   ├── dynamic_array_grades.py
 │   ├── linked_list_playlist.py
 │   ├── stack_undo_redo.py
@@ -54,22 +71,21 @@ dsa-project/
 │   ├── hash_contacts.py
 │   ├── searching_inventory.py
 │   └── sorting_students.py
-├── tests/                     # unit tests + validation report runner
+├── tests/                         # unit tests + validation report runner
 │   ├── __init__.py
 │   ├── test_linear.py
 │   ├── test_trees.py
 │   ├── test_hashing.py
 │   ├── test_sorting_searching.py
 │   └── run_tests.py
-├── performance/               # performance analysis
+├── performance/                   # performance analysis
 │   ├── __init__.py
 │   └── analysis.py
 ├── docs/
-│   └── DESIGN.md              # design principles & trade-offs
-├── presentation/
-│   ├── __init__.py
-│   └── report.py              # Python-generated presentation report
-└── .gitignore
+│   └── DESIGN.md                  # design principles & trade-offs
+└── presentation/                  # presentation/report files
+    ├── report.py                  # Python-generated presentation report
+    └── report.html                # Generated HTML report
 ```
 
 ---
@@ -178,14 +194,14 @@ general sorting; prefer AVL over BST when input may be sorted/adversarial).
 
 ---
 
-## Generate presentation slides
+# Generate presentation report
 
 ```bash
 # Generate presentation/report.html (open in any browser)
 python presentation/report.py
 ```
 
-The slide deck (15 slides) summarizes key findings, challenges faced, and lessons
+The report (15 slides) summarizes key findings, challenges faced, and lessons
 learned, plus a deliverables checklist and how-to-run commands.
 
 ---
@@ -345,7 +361,7 @@ index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 
 ---
 
-## Project deliverables & evaluation criteria
+## Project deliverables
 
 | # | Deliverable / Criterion | Where it lives | Status |
 |---|---|---|---|
@@ -353,7 +369,7 @@ index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 | 2 | Documentation (design principles, functionality, usage examples) | `README.md`, `docs/DESIGN.md`, inline docstrings | ✅ Complete |
 | 3 | Test cases & validation report (scenarios + edge cases) | `tests/`, `TEST_VALIDATION_REPORT.md` | ✅ Complete |
 | 4 | Performance analysis report (time/space complexity comparison) | `performance/`, `PERFORMANCE_ANALYSIS_REPORT.md` | ✅ Complete |
-| 5 | Presentation slides (key findings, challenges, lessons learned) | `presentation/report.py` (+ generated HTML) | ✅ Complete |
+| 5 | Presentation report (key findings, challenges, lessons learned) | `presentation/report.py` (+ generated HTML) | ✅ Complete |
 
 ---
 
