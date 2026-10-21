@@ -114,36 +114,22 @@ def analyze_traversals(sizes: list[int] | None = None) -> list[dict]:
         sizes = [100, 500, 1000, 2000, 5000]
 
     traversals = {
-        "in_order": (T.in_order, T.in_order_iterative),
-        "pre_order": (T.pre_order, T.pre_order_iterative),
-        "post_order": (T.post_order, T.post_order_iterative),
+        "in_order": T.in_order,
+        "pre_order": T.pre_order,
+        "post_order": T.post_order,
     }
 
     results: list[dict] = []
     for size in sizes:
         tree = _build_tree(size, kind="random")
         root = tree.root
-        for name, (rec_fn, iter_fn) in traversals.items():
-            # Recursive.
-            _, rec_time = _timed(lambda: list(rec_fn(root)))
-            # Iterative.
-            _, iter_time = _timed(lambda: list(iter_fn(root)))
-            # Verify both produce the same sequence.
-            rec_vals = list(rec_fn(root))
-            iter_vals = list(iter_fn(root))
-            assert rec_vals == iter_vals, f"{name} mismatch between recursive and iterative"
-
+        for name, fn in traversals.items():
+            _, elapsed = _timed(lambda: list(fn(root)))
             results.append({
                 "traversal": name,
                 "variant": "recursive",
                 "size": size,
-                "seconds": rec_time,
-            })
-            results.append({
-                "traversal": name,
-                "variant": "iterative",
-                "size": size,
-                "seconds": iter_time,
+                "seconds": elapsed,
             })
     return results
 

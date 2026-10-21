@@ -314,7 +314,6 @@ tree = BinaryTree(1)
 tree.insert(2)
 tree.insert(3)
 print(list(T.in_order(tree.root)))       # recursive
-print(list(T.in_order_iterative(tree.root)))  # iterative, same result
 ```
 
 ### Hash tables
