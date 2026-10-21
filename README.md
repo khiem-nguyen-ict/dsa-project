@@ -377,3 +377,16 @@ index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 
 - Python 3.9+ (uses `from __future__ import annotations` and `X \| None` syntax).
 - Standard library only — no third-party packages.
+
+## Virtual environment
+
+The project uses only the Python standard library, so no packages are required.
+A virtual environment is still recommended for isolation:
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python main.py
+```
+
+The `.venv/` directory is gitignored.
