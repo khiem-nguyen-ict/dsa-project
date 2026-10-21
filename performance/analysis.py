@@ -20,7 +20,6 @@ if _PROJECT_ROOT not in sys.path:
 from src.dsa.sorting import bubble_sort, insertion_sort, merge_sort
 from src.dsa.searching import OpStats
 from src.dsa.trees import BinarySearchTree, AVLTree, BinaryTree
-from src.dsa.trees import traversals as T
 
 
 def _timed(fn, *args, **kwargs):
@@ -106,46 +105,8 @@ def _build_tree(size: int, kind: str = "bst", seed: int = 42):
 
 
 def analyze_traversals(sizes: list[int] | None = None) -> list[dict]:
-    """Benchmark recursive vs iterative tree traversals.
-
-    Returns a list of result dicts, one per (traversal, variant, size) combination.
-    """
-    if sizes is None:
-        sizes = [100, 500, 1000, 2000, 5000]
-
-    traversals = {
-        "in_order": (T.in_order, T.in_order_iterative),
-        "pre_order": (T.pre_order, T.pre_order_iterative),
-        "post_order": (T.post_order, T.post_order_iterative),
-    }
-
-    results: list[dict] = []
-    for size in sizes:
-        tree = _build_tree(size, kind="random")
-        root = tree.root
-        for name, (rec_fn, iter_fn) in traversals.items():
-            # Recursive.
-            _, rec_time = _timed(lambda: list(rec_fn(root)))
-            # Iterative.
-            _, iter_time = _timed(lambda: list(iter_fn(root)))
-            # Verify both produce the same sequence.
-            rec_vals = list(rec_fn(root))
-            iter_vals = list(iter_fn(root))
-            assert rec_vals == iter_vals, f"{name} mismatch between recursive and iterative"
-
-            results.append({
-                "traversal": name,
-                "variant": "recursive",
-                "size": size,
-                "seconds": rec_time,
-            })
-            results.append({
-                "traversal": name,
-                "variant": "iterative",
-                "size": size,
-                "seconds": iter_time,
-            })
-    return results
+    """No traversal benchmarks (iterative variants removed)."""
+    return []
 
 
 def _format_seconds(seconds: float) -> str:
@@ -262,12 +223,9 @@ def main() -> int:
     print("=== Sorting performance analysis ===")
     sorting_results = analyze_sorting()
     print(f"Collected {len(sorting_results)} sorting samples.")
-    print("\n=== Tree traversal performance analysis ===")
-    traversal_results = analyze_traversals()
-    print(f"Collected {len(traversal_results)} traversal samples.")
 
     report_path = os.path.join(_PROJECT_ROOT, "PERFORMANCE_ANALYSIS_REPORT.md")
-    write_report(sorting_results, traversal_results, report_path)
+    write_report(sorting_results, [], report_path)
     print(f"\nPerformance report written to {report_path}")
     return 0
 

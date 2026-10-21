@@ -203,20 +203,11 @@ class TestTraversals(unittest.TestCase):
         root = self._build_sample()
         self.assertEqual(list(T.level_order(root)), [1, 2, 3, 4, 5])
 
-    def test_iterative_matches_recursive(self):
-        root = self._build_sample()
-        self.assertEqual(list(T.in_order(root)), list(T.in_order_iterative(root)))
-        self.assertEqual(list(T.pre_order(root)), list(T.pre_order_iterative(root)))
-        self.assertEqual(list(T.post_order(root)), list(T.post_order_iterative(root)))
-
     def test_empty_root(self):
         self.assertEqual(list(T.in_order(None)), [])
         self.assertEqual(list(T.pre_order(None)), [])
         self.assertEqual(list(T.post_order(None)), [])
         self.assertEqual(list(T.level_order(None)), [])
-        self.assertEqual(list(T.in_order_iterative(None)), [])
-        self.assertEqual(list(T.pre_order_iterative(None)), [])
-        self.assertEqual(list(T.post_order_iterative(None)), [])
 
 
 if __name__ == "__main__":
