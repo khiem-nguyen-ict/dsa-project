@@ -20,6 +20,7 @@ if _PROJECT_ROOT not in sys.path:
 from src.dsa.sorting import bubble_sort, insertion_sort, merge_sort
 from src.dsa.searching import OpStats
 from src.dsa.trees import BinarySearchTree, AVLTree, BinaryTree
+from src.dsa.trees import traversals as T
 
 
 def _timed(fn, *args, **kwargs):
@@ -105,8 +106,32 @@ def _build_tree(size: int, kind: str = "bst", seed: int = 42):
 
 
 def analyze_traversals(sizes: list[int] | None = None) -> list[dict]:
-    """No traversal benchmarks (iterative variants removed)."""
-    return []
+    """Benchmark recursive vs iterative tree traversals.
+
+    Returns a list of result dicts, one per (traversal, variant, size) combination.
+    """
+    if sizes is None:
+        sizes = [100, 500, 1000, 2000, 5000]
+
+    traversals = {
+        "in_order": T.in_order,
+        "pre_order": T.pre_order,
+        "post_order": T.post_order,
+    }
+
+    results: list[dict] = []
+    for size in sizes:
+        tree = _build_tree(size, kind="random")
+        root = tree.root
+        for name, fn in traversals.items():
+            _, elapsed = _timed(lambda: list(fn(root)))
+            results.append({
+                "traversal": name,
+                "variant": "recursive",
+                "size": size,
+                "seconds": elapsed,
+            })
+    return results
 
 
 def _format_seconds(seconds: float) -> str:
@@ -223,9 +248,12 @@ def main() -> int:
     print("=== Sorting performance analysis ===")
     sorting_results = analyze_sorting()
     print(f"Collected {len(sorting_results)} sorting samples.")
+    print("\n=== Tree traversal performance analysis ===")
+    traversal_results = analyze_traversals()
+    print(f"Collected {len(traversal_results)} traversal samples.")
 
     report_path = os.path.join(_PROJECT_ROOT, "PERFORMANCE_ANALYSIS_REPORT.md")
-    write_report(sorting_results, [], report_path)
+    write_report(sorting_results, traversal_results, report_path)
     print(f"\nPerformance report written to {report_path}")
     return 0
 
