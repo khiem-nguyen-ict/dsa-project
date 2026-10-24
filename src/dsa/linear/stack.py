@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.linear.array import DynamicArray
 from src.dsa.linear.node import Node
@@ -54,13 +54,12 @@ class StackArray:
         """Return the number of elements currently on the stack."""
         return self._storage.__len__()
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
         # Yield top-to-bottom for a natural "undo" view.
+        result = []
         for i in range(self._storage.__len__() - 1, -1, -1):
-            yield self._storage.get(i)
-
-    def __len__(self) -> int:
-        return self._storage.__len__()
+            result.append(self._storage.get(i))
+        return iter(result) # type: ignore
 
 
 class StackLinked:
@@ -115,11 +114,10 @@ class StackLinked:
         """Return the number of elements currently on the stack."""
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
+        result = []
         current = self._head
         while current is not None:
-            yield current.value
+            result.append(current.value)
             current = current.next
-
-    def __len__(self) -> int:
-        return self._size
+        return iter(result)

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.linear.node import Node
 
@@ -67,11 +67,10 @@ class QueueLinked:
         """Return the number of elements currently in the queue."""
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
+        result = []
         current = self._head
         while current is not None:
-            yield current.value
+            result.append(current.value)
             current = current.next
-
-    def __len__(self) -> int:
-        return self._size
+        return iter(result) # type: ignore
