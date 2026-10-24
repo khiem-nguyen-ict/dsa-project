@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.trees.node import TreeNode
 
@@ -145,16 +145,18 @@ class BinarySearchTree:
     def __len__(self) -> int:
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
         """Yield values in ascending (in-order) order."""
-        yield from self._in_order(self._root)
+        return iter(self._in_order(self._root)) # type: ignore
 
-    def _in_order(self, node: "TreeNode | None") -> Iterator[Any]:
+    def _in_order(self, node: "TreeNode | None") -> list[Any]:
         if node is None:
-            return
-        yield from self._in_order(node.left)
-        yield node.value
-        yield from self._in_order(node.right)
+            return []
+        result = []
+        result.extend(self._in_order(node.left))
+        result.append(node.value)
+        result.extend(self._in_order(node.right))
+        return result
 
     def __repr__(self) -> str:
         return f"BinarySearchTree([{', '.join(repr(v) for v in self)}])"

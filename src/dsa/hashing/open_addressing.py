@@ -11,7 +11,7 @@ doubles its capacity and rehashes every live entry.
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.hashing.hash_functions import division_hash
 
@@ -151,10 +151,12 @@ class OpenAddressingHashTable:
     def __len__(self) -> int:
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
+        result = []
         for slot in self._slots:
             if slot is not None and slot is not _TOMBSTONE:
-                yield slot[0]
+                result.append(slot[0])
+        return iter(result) # type: ignore
 
     def load_factor(self) -> float:
         """Return live-size / capacity (tombstones still occupy a slot)."""

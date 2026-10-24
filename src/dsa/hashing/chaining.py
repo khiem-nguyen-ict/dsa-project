@@ -10,7 +10,7 @@ threshold the table doubles its capacity and rehashes every live entry.
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.hashing.hash_functions import division_hash
 
@@ -93,10 +93,12 @@ class ChainingHashTable:
     def __len__(self) -> int:
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
+        result = []
         for bucket in self._buckets:
             for k, _ in bucket:
-                yield k
+                result.append(k)
+        return iter(result) # type: ignore
 
     @property
     def capacity(self) -> int:

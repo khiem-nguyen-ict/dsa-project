@@ -8,7 +8,7 @@ its own primitives.
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 
 class DynamicArray:
@@ -99,11 +99,13 @@ class DynamicArray:
     def __len__(self) -> int:
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
         # Iterate only the live prefix; the trailing None slots are not part
         # of the logical array.
+        result = []
         for i in range(self._size):
-            yield self._storage[i]
+            result.append(self._storage[i])
+        return iter(result) # type: ignore
 
     def __repr__(self) -> str:
         return f"DynamicArray({list(self)!r})"

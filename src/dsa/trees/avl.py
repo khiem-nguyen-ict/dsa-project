@@ -186,13 +186,15 @@ class AVLTree:
     def __contains__(self, value: Any) -> bool:
         return self.search(value)
 
-    def __iter__(self) -> Any:
+    def __iter__(self) -> list[Any]:
         """Yield values in ascending (in-order) order."""
-        yield from self._in_order(self._root)
+        return iter(self._in_order(self._root)) # type: ignore
 
-    def _in_order(self, node: "TreeNode | None") -> Any:
+    def _in_order(self, node: "TreeNode | None") -> list[Any]:
         if node is None:
-            return
-        yield from self._in_order(node.left)
-        yield node.value
-        yield from self._in_order(node.right)
+            return []
+        result = []
+        result.extend(self._in_order(node.left))
+        result.append(node.value)
+        result.extend(self._in_order(node.right))
+        return result

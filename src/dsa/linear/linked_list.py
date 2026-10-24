@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any, Iterator, cast
+from typing import Any, cast
 
 from src.dsa.linear.node import Node
 
@@ -128,11 +128,13 @@ class SinglyLinkedList:
     def __len__(self) -> int:
         return self._size
 
-    def __iter__(self) -> Iterator[Any]:
+    def __iter__(self) -> list[Any]:
+        result = []
         current = self._head
         while current is not None:
-            yield current.value
+            result.append(current.value)
             current = current.next
+        return iter(result) # type: ignore
 
     def __repr__(self) -> str:
         return f"SinglyLinkedList([{', '.join(repr(v) for v in self)}])"

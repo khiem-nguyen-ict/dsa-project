@@ -8,53 +8,57 @@ Recursive variants are provided.  Every function accepts a bare
 
 from __future__ import annotations
 
-from typing import Any, Iterator
+from typing import Any
 
 from src.dsa.trees.node import TreeNode
 from src.dsa.linear.queue import QueueLinked
 
 
-def in_order(root: "TreeNode | None") -> Iterator[Any]:
-    """Yield values left-root-right (recursive).
+def in_order(root: "TreeNode | None") -> list[Any]:
+    """Return values left-root-right (recursive).
 
     Time: O(n) visits every node once.
     Space: O(h) on the call stack, where h is the tree height.
     """
     if root is None:
-        return
-    yield from in_order(root.left)
-    yield root.value
-    yield from in_order(root.right)
+        return []
+    result = []
+    result += in_order(root.left)
+    result.append(root.value)
+    result += in_order(root.right)
+    return result
 
-
-def pre_order(root: "TreeNode | None") -> Iterator[Any]:
-    """Yield values root-left-right (recursive).
-
-    Time: O(n).
-    Space: O(h) on the call stack.
-    """
-    if root is None:
-        return
-    yield root.value
-    yield from pre_order(root.left)
-    yield from pre_order(root.right)
-
-
-def post_order(root: "TreeNode | None") -> Iterator[Any]:
-    """Yield values left-right-root (recursive).
+def pre_order(root: "TreeNode | None") -> list[Any]:
+    """Return values root-left-right (recursive).
 
     Time: O(n).
     Space: O(h) on the call stack.
     """
     if root is None:
-        return
-    yield from post_order(root.left)
-    yield from post_order(root.right)
-    yield root.value
+        return []
+    result = []
+    result.append(root.value)
+    result += pre_order(root.left)
+    result += pre_order(root.right)
+    return result
 
 
-def level_order(root: "TreeNode | None") -> Iterator[Any]:
-    """Yield values breadth-first, level by level.
+def post_order(root: "TreeNode | None") -> list[Any]:
+    """Return values left-right-root (recursive).
+
+    Time: O(n).
+    Space: O(h) on the call stack.
+    """
+    if root is None:
+            return []
+    result = []
+    result += post_order(root.left)
+    result += post_order(root.right)
+    result.append(root.value)
+    return result
+
+def level_order(root: "TreeNode | None") -> list[Any]:
+    """Return values breadth-first, level by level.
 
     Uses :class:`QueueLinked` so no ``collections.deque`` is needed.
 
@@ -62,15 +66,17 @@ def level_order(root: "TreeNode | None") -> Iterator[Any]:
     Space: O(w) where w is the maximum width of a level.
     """
     if root is None:
-        return
+        return []
+    result = []
     queue: QueueLinked = QueueLinked()
     queue.enqueue(root)
     while not queue.is_empty():
         node = queue.dequeue()
-        yield node.value
+        result.append(node.value)
         if node.left is not None:
             queue.enqueue(node.left)
         if node.right is not None:
             queue.enqueue(node.right)
+    return result
 
 
