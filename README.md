@@ -13,20 +13,6 @@ documentation — all demonstrated through runnable scenarios.
 
 ---
 
-## Table of contents
-
-1. [Project layout](#project-layout)
-2. [Implemented data structures](#implemented-data-structures)
-3. [Implemented algorithms](#implemented-algorithms)
-4. [Run the scenarios](#run-the-scenarios)
-5. [Run the tests and view the validation report](#run-the-tests)
-6. [Performance analysis](#performance-analysis)
-7. [Design principles](#design-principles)
-8. [Usage examples](#usage-examples)
-9. [Project deliverables & evaluation criteria](#project-deliverables--evaluation-criteria)
-
----
-
 ## Project layout
 
 ```
@@ -144,32 +130,6 @@ The analysis benchmarks:
 The generated `PERFORMANCE_ANALYSIS_REPORT.md` includes timing tables, space/time
 complexity summaries, and practical recommendations (e.g., use merge sort for
 general sorting; prefer AVL over BST when input may be sorted/adversarial).
-
----
-
-# Generate presentation report
-
-```bash
-# Generate presentation/report.html (open in any browser)
-python presentation/report.py
-```
-
-The report (15 slides) summarizes key findings, challenges faced, and lessons
-learned, plus a deliverables checklist and how-to-run commands.
-
----
-
-## Design principles
-
-See `docs/DESIGN.md` for the full design rationale. Highlights:
-
-- **From scratch**: no built-in `dict`/`set` inside hash tables, no `list.sort`/`sorted` inside sorting algorithms, no `collections.deque` inside queues.
-- **Plain lists only as raw storage**: a plain Python list is used solely as a fixed-capacity buffer (`[None] * capacity`) inside `DynamicArray`, the circular queue, and hash-table buckets/slots. Every other structure implements its own behaviour on top of its own primitives (nodes, buckets, slots).
-- **Grow-only resizing**: arrays, circular queues, and hash tables grow (never shrink) when full / over load threshold.
-- **Set-like trees**: BST and AVL ignore duplicates to keep the tree a clean ordered set.
-- **Tombstones**: open addressing uses a tombstone sentinel so deletions never break probe sequences.
-- **Complexity documented**: every public method carries a `Time:` / `Space:` docstring.
-- **Scenario-driven**: each structure is demonstrated through a concrete real-world scenario under `scenarios/`.
 
 ---
 
@@ -310,35 +270,3 @@ from src.dsa.searching import linear_search, binary_search_iterative
 index = linear_search([10, 20, 30, 40], 30)   # 2
 index = binary_search_iterative([1, 3, 5, 7, 9], 5)  # 2
 ```
-
----
-
-## Project deliverables
-
-| # | Deliverable / Criterion | Where it lives | Status |
-|---|---|---|---|
-| 1 | Python code implementing all data structures & algorithms (trees + hash tables) | `src/dsa/`, `scenarios/` | ✅ Complete |
-| 2 | Documentation (design principles, functionality, usage examples) | `README.md`, `docs/DESIGN.md`, inline docstrings | ✅ Complete |
-| 3 | Test cases & validation report (scenarios + edge cases) | `tests/`, `TEST_VALIDATION_REPORT.md` | ✅ Complete |
-| 4 | Performance analysis report (time/space complexity comparison) | `performance/`, `PERFORMANCE_ANALYSIS_REPORT.md` | ✅ Complete |
-| 5 | Presentation report (key findings, challenges, lessons learned) | `presentation/report.py` (+ generated HTML) | ✅ Complete |
-
----
-
-## Requirements
-
-- Python 3.9+ (uses `from __future__ import annotations` and `X \| None` syntax).
-- Standard library only — no third-party packages.
-
-## Virtual environment
-
-The project uses only the Python standard library, so no packages are required.
-A virtual environment is still recommended for isolation:
-
-```bash
-python3.12 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-python main.py
-```
-
-The `.venv/` directory is gitignored.
