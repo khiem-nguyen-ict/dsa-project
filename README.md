@@ -31,61 +31,14 @@ documentation — all demonstrated through runnable scenarios.
 
 ```
 dsa-project/
-├── main.py                        # argparse entry point: runs all scenarios
-├── README.md                      # this file
-├── TEST_VALIDATION_REPORT.md      # generated test validation report
-├── PERFORMANCE_ANALYSIS_REPORT.md # generated performance comparison report
-├── project_config.json            # project configuration
 ├── src/dsa/                       # library package
-│   ├── __init__.py                # public API exports
 │   ├── linear/                    # DynamicArray, SinglyLinkedList, stacks, queues
-│   │   ├── __init__.py
-│   │   ├── array.py
-│   │   ├── linked_list.py
-│   │   ├── stack.py
-│   │   └── queue.py
 │   ├── trees/                     # TreeNode, BinaryTree, BST, AVL, traversals
-│   │   ├── __init__.py
-│   │   ├── node.py
-│   │   ├── binary_tree.py
-│   │   ├── bst.py
-│   │   ├── avl.py
-│   │   └── traversals.py
 │   ├── hashing/                   # hash functions, chaining, open addressing
-│   │   ├── __init__.py
-│   │   ├── hash_functions.py
-│   │   ├── chaining.py
-│   │   └── open_addressing.py
-│   ├── sorting.py                 # bubble, insertion, merge sort
-│   ├── searching.py               # linear, binary (iterative + recursive)
-│   └── stats.py                   # OpStats comparison/swap counters
 ├── scenarios/                     # runnable scenario demos (one per structure area)
-│   ├── __init__.py
-│   ├── dynamic_array_grades.py
-│   ├── linked_list_playlist.py
-│   ├── stack_undo_redo.py
-│   ├── queue_scheduling.py
-│   ├── binary_tree_expr.py
-│   ├── bst_student_records.py
-│   ├── avl_sorted_ids.py
-│   ├── hash_contacts.py
-│   ├── searching_inventory.py
-│   └── sorting_students.py
 ├── tests/                         # unit tests + validation report runner
-│   ├── __init__.py
-│   ├── test_linear.py
-│   ├── test_trees.py
-│   ├── test_hashing.py
-│   ├── test_sorting_searching.py
-│   └── run_tests.py
 ├── performance/                   # performance analysis
-│   ├── __init__.py
-│   └── analysis.py
-├── docs/
-│   └── DESIGN.md                  # design principles & trade-offs
 └── presentation/                  # presentation/report files
-    ├── report.py                  # Python-generated presentation report
-    └── report.html                # Generated HTML report
 ```
 
 ---
