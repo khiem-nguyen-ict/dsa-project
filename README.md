@@ -20,7 +20,7 @@ dsa-project/
 ├── src/dsa/                       # library package
 │   ├── linear/                    # DynamicArray, SinglyLinkedList, stacks, queues
 │   ├── trees/                     # TreeNode, BinaryTree, BST, AVL, traversals
-│   ├── hashing/                   # hash functions, chaining, open addressing
+│   ├── hashing/                   # hash functions, chaining hashtable
 ├── scenarios/                     # runnable scenario demos (one per structure area)
 ├── tests/                         # unit tests + validation report runner
 ├── performance/                   # performance analysis
@@ -41,11 +41,10 @@ dsa-project/
 | `BinaryTree` | `src/dsa/trees/binary_tree.py` | level-order insert, height, size | insert O(n); height/size O(n) |
 | `BinarySearchTree` | `src/dsa/trees/bst.py` | insert, search, delete, min, max | O(h); O(log n) balanced / O(n) skewed |
 | `AVLTree` | `src/dsa/trees/avl.py` | insert, search, delete, is_balanced | O(log n) guaranteed |
+| `ChainingHashTable` | `src/dsa/hashing/chaining.py` | put, get, remove | O(1) amortized average |
 
 Concrete **Balanced BST** (self-balancing via rotations); satisfies the
 "BalancedTree" requirement of the assignment.
-| `ChainingHashTable` | `src/dsa/hashing/chaining.py` | put, get, remove | O(1) amortized average |
-| `OpenAddressingHashTable` | `src/dsa/hashing/open_addressing.py` | put, get, remove | O(1) amortized average |
 
 ---
 
@@ -69,7 +68,7 @@ All three accept an optional `key` function and an optional `OpStats` object tha
 
 ### Hashing (`src/dsa/hashing/`)
 - Hash functions: `division_hash` (key % size), `polynomial_hash` (Horner's method), `djb2_hash`.
-- Collision resolution: **separate chaining** and **open addressing** (linear & quadratic probing), both with grow-only resizing and load-factor thresholds.
+- Collision resolution: **separate chaining** with grow-only resizing and load-factor thresholds.
 
 ---
 
@@ -240,14 +239,6 @@ table.put(104, "Linus")
 print(table.get(101))   # Ada
 print(999 in table)     # False
 table.remove(101)
-```
-
-```python
-from src.dsa.hashing import OpenAddressingHashTable, polynomial_hash
-
-table = OpenAddressingHashTable(hash_function=polynomial_hash, probe="quadratic")
-table.put("Ada", "ada@example.com")
-print(table.get("Ada"))
 ```
 
 ### Sorting with stats
