@@ -1,8 +1,7 @@
 """Scenario: contact directory, word-frequency counter, and a collision demo.
 
 Demonstrates two hash functions (``division_hash`` for integer keys,
-``polynomial_hash`` and ``djb2_hash`` for string keys) crossed with the two
-collision strategies (separate chaining and open addressing).
+``polynomial_hash`` and ``djb2_hash`` for string keys) using separate chaining.
 
 Run directly: ``python scenarios/hash_contacts.py``
 """
@@ -19,11 +18,10 @@ from src.dsa.hashing import (
     polynomial_hash,
     djb2_hash,
     ChainingHashTable,
-    OpenAddressingHashTable,
 )
 
 
-def build_contacts(hash_function, strategy: str):
+def build_contacts(hash_function, strategy: str = "chaining"):
     """Build a small contact directory and return the table."""
     table = _new_table(hash_function, strategy)
     directory = [
@@ -41,7 +39,7 @@ def build_contacts(hash_function, strategy: str):
     return table, directory
 
 
-def build_word_counter(hash_function, strategy: str, text: str):
+def build_word_counter(hash_function, strategy: str = "chaining", text: str = ""):
     """Count word frequencies in ``text`` using the given table."""
     table = _new_table(hash_function, strategy)
     for word in text.split():
@@ -49,10 +47,8 @@ def build_word_counter(hash_function, strategy: str, text: str):
     return table
 
 
-def _new_table(hash_function, strategy: str):
-    if strategy == "chaining":
-        return ChainingHashTable(hash_function=hash_function)
-    return OpenAddressingHashTable(hash_function=hash_function, probe="linear")
+def _new_table(hash_function, strategy: str = "chaining"):
+    return ChainingHashTable(hash_function=hash_function)
 
 
 def main() -> None:
@@ -81,26 +77,24 @@ def main() -> None:
     text = "the quick brown fox jumps over the lazy dog the quick brown fox"
     print("\n=== Word-frequency counter ===")
     for hash_fn, label in ((polynomial_hash, "polynomial"), (djb2_hash, "djb2")):
-        for strategy in ("chaining", "open addressing"):
-            table = build_word_counter(hash_fn, strategy, text)
-            print(
-                f"  {label} / {strategy}: "
-                f"'the'={table.get('the')}, 'fox'={table.get('fox')}, "
-                f"collisions={table.collision_count()}, resizes={table.resize_count()}"
-            )
+        table = build_word_counter(hash_fn, "chaining", text)
+        print(
+            f"  {label} (chaining): "
+            f"'the'={table.get('the')}, 'fox'={table.get('fox')}, "
+            f"collisions={table.collision_count()}, resizes={table.resize_count()}"
+        )
 
     print("\n=== Collision demo: many integer keys ===")
     # Sequential keys collide heavily with the division hash when the table
     # is small; watch the collision count climb and the table resize.
-    for strategy in ("chaining", "open addressing"):
-        table = _new_table(division_hash, strategy)
-        for i in range(50):
-            table.put(i, i)
-        print(
-            f"  {strategy}: size={len(table)}, capacity={table.capacity}, "
-            f"load_factor={table.load_factor():.3f}, "
-            f"collisions={table.collision_count()}, resizes={table.resize_count()}"
-        )
+    table = _new_table(division_hash, "chaining")
+    for i in range(50):
+        table.put(i, i)
+    print(
+        f"  chaining: size={len(table)}, capacity={table.capacity}, "
+        f"load_factor={table.load_factor():.3f}, "
+        f"collisions={table.collision_count()}, resizes={table.resize_count()}"
+    )
 
 
 if __name__ == "__main__":

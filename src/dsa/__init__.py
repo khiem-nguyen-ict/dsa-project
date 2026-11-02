@@ -19,7 +19,6 @@ from src.dsa.hashing import (
     polynomial_hash,
     djb2_hash,
     ChainingHashTable,
-    OpenAddressingHashTable,
 )
 from src.dsa.stats import OpStats
 from src.dsa.sorting import bubble_sort, insertion_sort, merge_sort
@@ -44,7 +43,6 @@ __all__ = [
     "polynomial_hash",
     "djb2_hash",
     "ChainingHashTable",
-    "OpenAddressingHashTable",
     "OpStats",
     "bubble_sort",
     "insertion_sort",

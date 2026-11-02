@@ -202,7 +202,6 @@ def write_report(sorting_results: list[dict], traversal_results: list[dict], pat
     lines.append("| BinarySearchTree | O(1) per node | O(h) recursion for insert/delete |")
     lines.append("| AVLTree | O(1) per node | O(log n) recursion depth when balanced |")
     lines.append("| ChainingHashTable | O(1) amortized | Buckets plus occasional O(n) resize |")
-    lines.append("| OpenAddressingHashTable | O(1) amortized | Slot array plus occasional O(n) resize |")
     lines.append("| bubble_sort / insertion_sort / merge_sort | O(n) | Each returns a new sorted list |")
     lines.append("| linear_search | O(1) | In-place scan |")
     lines.append("| binary_search_iterative | O(1) | In-place halving |")
@@ -222,7 +221,6 @@ def write_report(sorting_results: list[dict], traversal_results: list[dict], pat
     lines.append("| AVL insert/search/delete | O(log n) | O(log n) | O(log n) |")
     lines.append("| Tree traversal (any order) | O(n) | O(n) | O(n) |")
     lines.append("| ChainingHashTable put/get/remove | O(1) avg | O(1) avg | O(n) worst (all collide) |")
-    lines.append("| OpenAddressingHashTable put/get/remove | O(1) avg | O(1) avg | O(n) worst (full probe) |")
     lines.append("| bubble_sort | O(n) | O(n^2) | O(n^2) |")
     lines.append("| insertion_sort | O(n) | O(n^2) | O(n^2) |")
     lines.append("| merge_sort | O(n log n) | O(n log n) | O(n log n) |")
@@ -235,7 +233,7 @@ def write_report(sorting_results: list[dict], traversal_results: list[dict], pat
     lines.append("- Use **insertion sort** only for tiny or nearly-sorted inputs.")
     lines.append("- Prefer a **balanced tree (AVL)** when sorted-order operations must remain O(log n) on adversarial/sorted input; a plain BST degenerates to O(n).")
     lines.append("- Recursive and iterative traversals are equivalent in result and asymptotic time; choose recursive for clarity, iterative when stack depth is a concern.")
-    lines.append("- Hash tables give O(1) average-case put/get/remove; choose separate chaining for simplicity or open addressing for lower memory overhead when load factor is kept low.")
+    lines.append("- Hash tables give O(1) average-case put/get/remove; choose separate chaining for simplicity for lower memory overhead when load factor is kept low.")
 
     report = "\n".join(lines)
     with open(path, "w", encoding="utf-8") as f:

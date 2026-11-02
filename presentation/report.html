@@ -51,7 +51,7 @@ body {
 <section id="slide-1" class="slide" style="display:none">
   <h1>Project Structure</h1>
   <ul>
-    <li><strong><code>src/dsa/</code></strong> — Core logic code (from-scratch implementations). Contains <code>linear/</code> (arrays, linked lists, stacks, queues), <code>trees/</code> (binary tree, BST, AVL), <code>hashing/</code> (hash functions, chaining, open addressing), plus <code>sorting.py</code>, <code>searching.py</code>, and <code>stats.py</code> for complexity tracking.</li>
+    <li><strong><code>src/dsa/</code></strong> — Core logic code (from-scratch implementations). Contains <code>linear/</code> (arrays, linked lists, stacks, queues), <code>trees/</code> (binary tree, BST, AVL), <code>hashing/</code> (hash functions, chaining hash table), plus <code>sorting.py</code>, <code>searching.py</code>, and <code>stats.py</code> for complexity tracking.</li>
     <li><strong><code>scenarios/</code></strong> — Scenario-based demonstrations that apply the structures/algorithms to real-world contexts.</li>
     <li><strong><code>tests/</code></strong> — Unit tests validating correctness across all components, covering edge cases and invariants.</li>
     <li><strong><code>performance/</code></strong> — Performance analysis scripts and reports comparing algorithms/structures across input sizes and distributions.</li>
@@ -74,7 +74,7 @@ body {
   <ul>
     <li><strong>Linear structures:</strong> Node-based linked lists, array-backed stacks/queues with proper bounds checking and clear error handling.</li>
     <li><strong>Trees:</strong> Recursive implementations with careful balance logic for AVL (propagating root changes via return values). Both recursive and iterative traversals provided.</li>
-    <li><strong>Hashing:</strong> Custom hash functions (division, polynomial, djb2). Chaining with load-factor-based resizing; open addressing with linear/quadratic (triangular) probing and tombstone deletions.</li>
+    <li><strong>Hashing:</strong> Custom hash functions (division, polynomial, djb2). Chaining with load-factor-based resizing.</li>
     <li><strong>Algorithms:</strong> Sorting/searching implemented from scratch with optional <code>OpStats</code> for instrumentation and performance analysis.</li>
     <li><strong>Validation-driven:</strong> Extensive unit tests, scenario validation, and automated reports ensure correctness.</li>
   </ul>

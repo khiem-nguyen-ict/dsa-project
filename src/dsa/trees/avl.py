@@ -68,18 +68,18 @@ class AVLTree:
     def _rotate_right(self, pivot: TreeNode) -> TreeNode:
         """Single right rotation around ``pivot`` (left-left case)."""
         new_root = pivot.left  # type: ignore[union-attr]
-        pivot.left = new_root.right
-        new_root.right = pivot
+        pivot.left = new_root.right # type: ignore
+        new_root.right = pivot # type: ignore
         self._rotations += 1
-        return new_root
+        return new_root # type: ignore
 
     def _rotate_left(self, pivot: TreeNode) -> TreeNode:
         """Single left rotation around ``pivot`` (right-right case)."""
         new_root = pivot.right  # type: ignore[union-attr]
-        pivot.right = new_root.left
-        new_root.left = pivot
+        pivot.right = new_root.left # type: ignore
+        new_root.left = pivot # type: ignore
         self._rotations += 1
-        return new_root
+        return new_root # type: ignore
 
     def _balance(self, node: TreeNode) -> TreeNode:
         """Apply the rotation(s) needed to restore balance at ``node``."""
