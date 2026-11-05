@@ -63,8 +63,8 @@ All three accept an optional `key` function and an optional `OpStats` object tha
 - **Binary Search (recursive)** — O(log n), requires sorted input, O(log n) stack space.
 
 ### Tree traversals (`src/dsa/trees/traversals.py`)
-- **In-order** (left-root-root), **Pre-order** (root-left-right), **Post-order** (left-right-root), **Level-order** (breadth-first).
-- Each provided as a recursive generator and an explicit-stack iterative variant.
+- **In-order** (left-root-right), **Pre-order** (root-left-right), **Post-order** (left-right-root), **Level-order** (breadth-first).
+- Each provided as a recursive implementation.
 
 ### Hashing (`src/dsa/hashing/`)
 - Hash functions: `division_hash` (key % size), `polynomial_hash` (Horner's method), `djb2_hash`.
