@@ -44,7 +44,7 @@ body {
   <h1>Implementation of Essential Data Structures & Algorithms in Python</h1>
   <p><strong>Presented by:</strong> DSA Project Group</p>
   <p><strong>Team members:</strong> Al-Qaraghuly Mostafa, Khiem Nguyen, The Bui, Gihan Fernando</p>
-  <p><strong>Language:</strong> Python 3 (standard library only)</p>
+  <p><strong>Language:</strong> Python (standard library only)</p>
   <p>From-scratch implementation of core data structures and algorithms, demonstrated through scenario-based programs.</p>
 </section>
 
@@ -53,8 +53,8 @@ body {
   <ul>
     <li><strong><code>src/dsa/</code></strong> — Core logic code (from-scratch implementations). Contains <code>linear/</code> (arrays, linked lists, stacks, queues), <code>trees/</code> (binary tree, BST, AVL), <code>hashing/</code> (hash functions, chaining hash table), plus <code>sorting.py</code>, <code>searching.py</code>, and <code>stats.py</code> for complexity tracking.</li>
     <li><strong><code>scenarios/</code></strong> — Scenario-based demonstrations that apply the structures/algorithms to real-world contexts.</li>
-    <li><strong><code>tests/</code></strong> — Unit tests validating correctness across all components, covering edge cases and invariants.</li>
-    <li><strong><code>performance/</code></strong> — Performance analysis scripts and reports comparing algorithms/structures across input sizes and distributions.</li>
+    <li><strong><code>tests/</code></strong> — Unit tests validating correctness across all components, make sure all parts work as expected under all conditions.</li>
+    <li><strong><code>performance/</code></strong> — Scripts and reports that measure performance, comparing how different algorithms and data structures handle various input sizes and types.</li>
   </ul>
   <p><code>main.py</code> ties everything together to run scenarios.</p>
 </section>
@@ -63,7 +63,7 @@ body {
   <h1>How We Implemented the Code</h1>
   <ul>
     <li><strong>From scratch:</strong> No built-in high-level containers used in implementations (no <code>list.sort</code>, no <code>dict</code>/<code>set</code>). Everything built from nodes, lists/arrays, and buckets/slots.</li>
-    <li><strong>Standard library only:</strong> Pure Python 3.9+ with no external dependencies.</li>
+    <li><strong>Standard library only:</strong> Pure Python with no external dependencies.</li>
     <li><strong>Modular design:</strong> Clear separation by category (<code>linear/</code>, <code>trees/</code>, <code>hashing/</code>) with shared utilities like <code>stats.OpStats</code> for tracking comparisons/swaps.</li>
     <li><strong>Complexity-conscious:</strong> Time and space complexity documented in docstrings for methods and functions.</li>
   </ul>
@@ -84,7 +84,7 @@ body {
   <h1>Key Approach</h1>
   <ul>
     <li><strong>Test-first validation:</strong> Each structure/algorithm validated against edge cases and invariants.</li>
-    <li><strong>Scenario-driven design:</strong> Real-world use cases guide API design and ensure practical applicability.</li>
+    <li><strong>Scenario-driven design:</strong> Design for practical use and ensure real-world applicability."</li>
     <li><strong>Performance tracking:</strong> Instrumentation via <code>OpStats</code> enables empirical comparison across inputs/distributions.</li>
     <li><strong>Clean interfaces:</strong> Consistent method naming and error semantics across all implementations.</li>
   </ul>
